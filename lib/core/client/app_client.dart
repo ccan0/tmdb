@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:tmbd/core/client/type/app_client_interface.dart';
 import 'package:tmbd/utilities/constants/url_constants/url_constants.dart';
 
-class AppClient {
+class AppClient implements IAppClient{
   static final AppClient _instance = AppClient._internal();
 
   factory AppClient() {
@@ -17,42 +19,46 @@ class AppClient {
     );
   }
 
+  @override
   Future<Response?> get({required String url, Map<String, dynamic>? queryParameters}) async {
     try {
       final Response response = await _dio.get(url, queryParameters: queryParameters);
       return response;
     } catch (error) {
-      print('GET request error: $error');
+      debugPrint('GET request error: $error');
       return null;
     }
   }
 
+  @override
   Future<Response?> post({required String url, Map<String, dynamic>? queryParameters, Map<String, dynamic>? body}) async {
     try {
       final Response response = await _dio.post(url, data: body);
       return response;
     } catch (error) {
-      print('POST request error: $error');
+      debugPrint('POST request error: $error');
       return null;
     }
   }
 
-  Future<Response?> put({required String url, Map<String, dynamic>? queryParameters, Map<String, dynamic>? body,}) async {
+  @override
+  Future<Response?> put({required String url, Map<String, dynamic>? queryParameters, Map<String, dynamic>? body}) async {
     try {
       final Response response = await _dio.put(url, data: body);
       return response;
     } catch (error) {
-      print('PUT request error: $error');
+      debugPrint('PUT request error: $error');
       return null;
     }
   }
 
+  @override
   Future<Response?> delete({required String url, Map<String, dynamic>? queryParameters, Map<String, dynamic>? body}) async {
     try {
       final Response response = await _dio.delete(url, data: body);
       return response;
     } catch (error) {
-      print('DELETE request error: $error');
+      debugPrint('DELETE request error: $error');
       return null;
     }
   }

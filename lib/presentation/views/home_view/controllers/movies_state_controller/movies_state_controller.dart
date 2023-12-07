@@ -5,17 +5,17 @@ part 'movies_state_controller.g.dart';
 @riverpod
 class MoviesStateController extends _$MoviesStateController {
 
-  bool isSearchedState = false;
+  bool _isSearchedState = false;
 
   @override
   bool build() {
-    return isSearchedState;
+    return _isSearchedState;
   }
 
   void changeState({required bool newValue}) {
-    isSearchedState = newValue;
+    _isSearchedState = newValue;
 
-    state = isSearchedState;
+    state = _isSearchedState;
 
     ref.invalidateSelf();
   }

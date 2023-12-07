@@ -5,17 +5,17 @@ part 'search_state_controller.g.dart';
 @riverpod
 class SearchStateController extends _$SearchStateController {
 
-  bool isSearchedState = false;
+  bool _isSearchedState = false;
 
   @override
   bool build() {
-    return isSearchedState;
+    return _isSearchedState;
   }
 
   void changeOpenState() {
-    isSearchedState = !isSearchedState;
+    _isSearchedState = !_isSearchedState;
 
-    state = isSearchedState;
+    state = _isSearchedState;
 
     ref.invalidateSelf();
   }

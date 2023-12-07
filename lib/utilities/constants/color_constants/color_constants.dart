@@ -11,4 +11,7 @@ class ColorConstants {
 
   Color darkGrey = const Color(0xFF303030);
   Color white = Colors.white;
+  Color grey = Colors.grey;
+  Color black = Colors.black;
+  Color lightBlack = Colors.black12;
 }

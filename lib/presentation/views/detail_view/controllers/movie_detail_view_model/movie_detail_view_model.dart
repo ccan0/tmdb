@@ -6,12 +6,12 @@ part 'movie_detail_view_model.g.dart';
 
 @riverpod
 class MovieDetailViewModel extends _$MovieDetailViewModel {
-  MovieInformationModel movieInformation = MovieInformationModel();
+  MovieInformationModel _movieInformation = MovieInformationModel();
 
   @override
   MovieInformationModel build() {
 
-    return movieInformation;
+    return _movieInformation;
   }
 
   Future<void> getMovie({required String movieId}) async {
@@ -19,9 +19,9 @@ class MovieDetailViewModel extends _$MovieDetailViewModel {
     MovieInformationModel? response = await MoviesService().getMovie(movieId: movieId);
 
     if (response != null) {
-      movieInformation = response;
+      _movieInformation = response;
 
-      state = movieInformation;
+      state = _movieInformation;
 
       ref.invalidateSelf();
     }

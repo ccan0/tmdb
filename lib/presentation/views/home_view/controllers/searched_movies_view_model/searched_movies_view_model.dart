@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:tmbd/models/movie_detail_model/movie_detail_model.dart';
 import 'package:tmbd/models/movies_model/movies_model.dart';
-import 'package:tmbd/presentation/view_model/movies_state_controller/movies_state_controller.dart';
+import 'package:tmbd/presentation/views/home_view/controllers/movies_state_controller/movies_state_controller.dart';
 import 'package:tmbd/services/movies_service/movies_service.dart';
 
 part 'searched_movies_view_model.g.dart';
